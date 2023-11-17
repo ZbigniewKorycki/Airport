@@ -9,7 +9,7 @@ class Runway:
             "height": 0
         }
         self.end_point = {
-            "width": start_point_width,
-            "length": start_point_length + length,
+            "width": start_point_width + length,
+            "length": start_point_length,
             "height": 0
         }
