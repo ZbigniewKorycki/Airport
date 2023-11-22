@@ -1,15 +1,15 @@
 class Runway:
 
-    def __init__(self, start_point_width, start_point_length, width=80, length=3000):
-        self.width = width
+    def __init__(self, start_coordinate_x, start_coordinate_y, length=2000):
         self.length = length
-        self.start_point = {
-            "width": start_point_width,
-            "length": start_point_length,
-            "height": 0
+        self.start_point_localisation = {
+            "x": start_coordinate_x,
+            "y": start_coordinate_y,
+            "z": 0
         }
-        self.end_point = {
-            "width": start_point_width + length,
-            "length": start_point_length,
-            "height": 0
+        self.end_point_localisation = {
+            "x": start_coordinate_x,
+            "y": start_coordinate_y + length,
+            "z": 0
         }
+

@@ -2,7 +2,7 @@ from datetime import timedelta
 
 
 class Airplane:
-    def __init__(self, width=60, length=70, height=20, minutes_of_remaining_fuel=180):
+    def __init__(self, width=30, length=40, height=10, minutes_of_remaining_fuel=180):
         self.width = width
         self.length = length
         self.height = height
