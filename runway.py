@@ -12,4 +12,11 @@ class Runway:
             "y": start_coordinate_y + length,
             "z": 0
         }
+        self.is_free = True
+
+    def block_the_runway(self):
+        self.is_free = False
+
+    def open_the_runway(self):
+        self.is_free = True
 
