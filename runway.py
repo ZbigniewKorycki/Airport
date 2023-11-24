@@ -1,5 +1,8 @@
+from setup_logging import setup_logging
+
 class Runway:
 
+    logger = setup_logging('dev')
     def __init__(self, start_coordinate_x, start_coordinate_y, length=2000):
         self.length = length
         self.start_point_localisation = {

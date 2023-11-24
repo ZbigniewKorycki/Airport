@@ -1,5 +1,8 @@
+from setup_logging import setup_logging
+
 
 class Airspace:
+    logger = setup_logging('dev')
 
     def __init__(self, width_area=10000, length_area=10000, height_area=5000):
         self.width_area = width_area
@@ -12,6 +15,3 @@ class Airspace:
 
     def increase_available_airspace(self):
         pass
-
-
-

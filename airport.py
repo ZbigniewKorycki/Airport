@@ -1,16 +1,16 @@
 from runway import Runway
 from airspace import Airspace
+from setup_logging import setup_logging
 
 
 class Airport:
+    logger = setup_logging('dev')
 
     def __init__(self, coordinate_x=5000, coordinate_y=5000):
         self.localisation = {
-            {
-                "x": coordinate_x,
-                "y": coordinate_y,
-                "z": 0
-            }
+            "x": coordinate_x,
+            "y": coordinate_y,
+            "z": 0
         }
         self.airspace = Airspace()
         self.runway_alfa = Runway(start_coordinate_x=4000, start_coordinate_y=5000)
@@ -36,9 +36,3 @@ class Airport:
 
     def count_airplanes(self):
         pass
-
-
-
-
-
-
