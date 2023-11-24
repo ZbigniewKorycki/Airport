@@ -1,6 +1,7 @@
 from datetime import timedelta
 from setup_logging import setup_logging
 import random
+import numpy as np
 
 
 class Airplane:
@@ -20,7 +21,7 @@ class Airplane:
                    {"x": random.choice(range(0, 10000)), "y": 0},
                    {"x": random.choice(range(0, 10000)), "y": 10000}]
         option = random.choice(options)
-        starting_position = [option["x"], option["y"], random.choice(range(2000, 5000))]
+        starting_position = np.array([option["x"], option["y"], random.choice(range(2000, 5000))])
         return starting_position
 
     def head_towards_air_corridor(self):
