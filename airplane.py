@@ -13,7 +13,8 @@ class Airplane:
         self.height = height
         self.time_of_remaining_fuel = timedelta(minutes=minutes_of_remaining_fuel)
         self.position = self.get_starting_position()
-
+        self.is_landing = False
+        self.fuel_reserves_status = "GREEN"
 
     def get_starting_position(self):
         options = [{"x": 0, "y": random.choice(range(0, 10000))},
@@ -24,14 +25,8 @@ class Airplane:
         starting_position = np.array([option["x"], option["y"], random.choice(range(2000, 5000))])
         return starting_position
 
-    def head_towards_air_corridor(self):
-        pass
-
     def reduce_amount_of_fuel(self):
-        pass
-
-    def fly_into_radar_area(self):
-        pass
+        self.time_of_remaining_fuel -= timedelta(minutes=1)
 
     def explore_the_nearest_space(self):
         pass
@@ -39,11 +34,23 @@ class Airplane:
     def airplane_collision(self):
         pass
 
-    def inform_about_small_fuel_reserves(self):
-        pass
+    def update_fuel_reserves_status(self):
+        if self.time_of_remaining_fuel > timedelta(minutes=90):
+            self.fuel_reserves_status = "GREEN"
+        elif self.time_of_remaining_fuel > timedelta(minutes=60):
+            self.fuel_reserves_status = "YELLOW"
+        elif self.time_of_remaining_fuel > timedelta(minutes=30):
+            self.fuel_reserves_status = "RED"
+        else:
+            self.fuel_reserves_status = "CRITICAL"
+    def inform_about_fuel_reserves(self):
+        return self.fuel_reserves_status
 
-    def start_landing(self, runway_position):
-        pass
+    def start_landing(self):
+        self.is_landing = True
+
+    def cancel_landing(self):
+        self.is_landing = False
 
     def inform_about_successful_landing(self):
         pass
