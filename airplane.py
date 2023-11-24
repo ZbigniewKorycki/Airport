@@ -11,7 +11,8 @@ class Airplane:
         self.length = length
         self.height = height
         self.time_of_remaining_fuel = timedelta(minutes=minutes_of_remaining_fuel)
-        self.starting_position = self.get_starting_position()
+        self.position = self.get_starting_position()
+
 
     def get_starting_position(self):
         options = [{"x": 0, "y": random.choice(range(0, 10000))},
@@ -19,11 +20,7 @@ class Airplane:
                    {"x": random.choice(range(0, 10000)), "y": 0},
                    {"x": random.choice(range(0, 10000)), "y": 10000}]
         option = random.choice(options)
-        starting_position = {
-            "x": option["x"],
-            "y": option["y"],
-            "z": random.choice(range(2000, 5000))
-        }
+        starting_position = [option["x"], option["y"], random.choice(range(2000, 5000))]
         return starting_position
 
     def head_towards_air_corridor(self):
@@ -44,7 +41,7 @@ class Airplane:
     def inform_about_small_fuel_reserves(self):
         pass
 
-    def start_landing(self):
+    def start_landing(self, runway_position):
         pass
 
     def inform_about_successful_landing(self):

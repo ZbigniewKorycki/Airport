@@ -5,16 +5,8 @@ class Runway:
     logger = setup_logging('dev')
     def __init__(self, start_coordinate_x, start_coordinate_y, length=2000):
         self.length = length
-        self.start_point_localisation = {
-            "x": start_coordinate_x,
-            "y": start_coordinate_y,
-            "z": 0
-        }
-        self.end_point_localisation = {
-            "x": start_coordinate_x,
-            "y": start_coordinate_y + length,
-            "z": 0
-        }
+        self.start_point_localisation = [start_coordinate_x, start_coordinate_y, 0]
+        self.end_point_localisation = [start_coordinate_x, start_coordinate_y + length, 0]
         self.is_free = True
 
     def block_the_runway(self):
