@@ -13,8 +13,8 @@ class Airplane:
     def get_starting_position():
         possible_options = [{"x": 0, "y": random.choice(range(0, 10000))},
                             {"x": 10000, "y": random.choice(range(0, 10000))},
-                            {"x": random.choice(range(0, 10000)), "y": 0},
-                            {"x": random.choice(range(0, 10000)), "y": 10000}]
+                            {"x": random.choice([x for x in range(0, 10000) if not (3800 <= x <= 4200 or 5800 <= x <= 6200)]), "y": 0},
+                            {"x": random.choice([x for x in range(0, 10000) if not (3800 <= x <= 4200 or 5800 <= x <= 6200)]), "y": 10000}]
         option = random.choice(possible_options)
         starting_position = [option["x"], option["y"], random.choice(range(2000, 5000))]
         return starting_position
