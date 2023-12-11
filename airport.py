@@ -1,14 +1,9 @@
 from runway import Runway
 from airspace import Airspace
-from setup_logging import setup_logging
-import numpy as np
 
 
 class Airport:
-    logger = setup_logging('dev')
-
-    def __init__(self, coordinate_x=5000, coordinate_y=5000):
-        self.localisation = np.array([coordinate_x, coordinate_y, 0])
+    def __init__(self):
         self.airspace = Airspace()
         self.runway_alfa = Runway(start_coordinate_x=4000, start_coordinate_y=5000)
         self.runway_beta = Runway(start_coordinate_x=6000, start_coordinate_y=5000)
@@ -23,7 +18,6 @@ class Airport:
 
     def allow_landing_for_airplane(self, airplane):
         pass
-
 
     def direct_airplane_to_air_corridor(self):
         pass
